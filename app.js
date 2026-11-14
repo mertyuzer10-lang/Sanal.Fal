@@ -91,7 +91,7 @@
 
   /* ---------- Arka plan: yumuşak parlayan küreler ---------- */
   function spawnOrbs(){
-    const layer = $("bgLayer");
+    const layer = document.getElementById("bg-layer") || document.body;
     for(let i=0;i<9;i++){
       const o = document.createElement("div");
       o.className = "bg-orb";
@@ -102,7 +102,9 @@
       const dur = 18 + Math.random()*16;
       o.style.animationDuration = dur + "s";
       o.style.animationDelay = (-Math.random()*dur) + "s";
-      layer.appendChild(o);
+      if (layer) {
+    layer.appendChild(o);
+}
     }
   }
 
